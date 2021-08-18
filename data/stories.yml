@@ -1,0 +1,93 @@
+version: "2.0"
+
+stories:
+
+- story: emergency
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_confirm_emergency
+
+- story: more help affirm 1
+  steps:
+  - action: utter_more_help
+  - intent: affirm
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: head
+  - action: utter_head_doctor
+  - action: utter_more_help
+
+- story: more help affirm 2
+  steps:
+  - action: utter_more_help
+  - intent: affirm
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: stomach
+  - action: utter_stomach_doctor
+  - action: utter_more_help
+
+- story: more help affirm 3
+  steps:
+  - action: utter_more_help
+  - intent: affirm
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: limbs
+  - action: utter_limbs_doctor
+  - action: utter_more_help
+
+- story: more help deny
+  steps:
+  - action: utter_more_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: head
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: head
+  - action: utter_head_doctor
+  - action: utter_more_help
+
+- story: stomache
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: stomach
+  - action: utter_stomach_doctor
+  - action: utter_more_help
+
+- story: limbs
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_what_symptoms
+  - intent: limbs
+  - action: utter_limbs_doctor
+  - action: utter_more_help
+
+- story: out of scope stop
+  steps:
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_goodbye
+
+- story: out of scope continue
+  steps:
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: utter_greet
